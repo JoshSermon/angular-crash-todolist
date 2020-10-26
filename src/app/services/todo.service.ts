@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Todo } from '../models/Todo';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class TodoService {
 
   constructor(private http:HttpClient) { }
 
-  getTodos() {
-    this.http.get<Todo[]>();
+  getTodos():Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.todosUrl);
   }
 }
 
 
-//Stop at 47.00
+//Stop at 54.00
